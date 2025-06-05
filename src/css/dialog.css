@@ -3,6 +3,7 @@
   position: fixed;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9998; /* High z-index to ensure overlay is above all other content */
 }
 
 .DialogContent {
@@ -15,9 +16,10 @@
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 500px;
-  max-height: 85vh;
+  height: auto;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9999; /* Even higher z-index for content to be above the overlay */
 }
 
 .DialogContent:focus {
@@ -52,6 +54,7 @@
   top: 10px;
   right: 10px;
   background-color: #f6f6f6; /* Replacing var(--gray-3) */
+  z-index: 10000; /* Highest z-index for the close button */
 }
 
 .IconButton:hover {

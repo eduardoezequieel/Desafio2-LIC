@@ -1,37 +1,45 @@
+import type { Product } from '../interfaces/Product';
+
 interface ProductCardProps {
-  openModal: () => void;
+  openModal: (selectedProduct: Product) => void;
+  product: Product;
 }
 
-export const ProductCard = ({ openModal }: ProductCardProps) => {
+export const ProductCard = ({ openModal, product }: ProductCardProps) => {
+  const { name, shortDescription, price, category, image } = product;
   return (
-    <div className="bg-secondary-background rounded">
-      <div className="rounded-sm flex h-[200px] min-[1280px]:h-[350px] flex-col items-center justify-center pt-4 px-4 pb-1">
-        <img className="w-full rounded-sm h-full object-cover" src="/shopping1.jpg" alt="" />
+    <div className="bg-secondary-background flex flex-col h-full rounded">
+      <div className="rounded-sm h-[200px] min-[1280px]:h-[350px] flex-shrink-0 pt-4 px-4 pb-1">
+        <img className="w-full rounded-sm h-full object-cover" src={image} alt="" />
       </div>
-      <div className="flex flex-col gap-1">
-        <div className="flex justify-between items-center px-4">
-          <h3 className="text-xl sm:text-2xl font-semibold text-primary">Producto</h3>
-          <div className="flex items-start">
-            <span className="text-primary text-xl sm:text-2xl font-semibold">$</span>
-            <h3 className="text-4xl sm:text-5xl text-primary font-bold">99</h3>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2 p-4">
-          <p className="text-primary/70 font-normal text-sm sm:text-base">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, quibusdam.
-          </p>
-          <div className="flex justify-between items-end flex-wrap gap-y-3">
-            <div className="bg-secondary px-2 py-1 rounded-sm flex items-center justify-center">
-              <span className="text-white uppercase text-xs font-bold">tag name</span>
+
+      <div className="flex flex-col flex-grow justify-between p-4">
+        <div className="mb-auto">
+          <div className="flex justify-between items-center">
+            <div className="py-2">
+              <h3 className="text-xl sm:text-2xl font-semibold text-primary">{name}</h3>
             </div>
-            <button
-              type="button"
-              onClick={openModal}
-              className="bg-primary cursor-pointer hover:bg-primary/80 transition-all text-xs sm:text-sm text-white px-3 sm:px-4 text-center py-2 uppercase font-bold rounded-md"
-            >
-              Detalles
-            </button>
+            <div className="flex items-start">
+              <span className="text-primary text-xl sm:text-2xl font-semibold">$</span>
+              <h3 className="text-xl sm:text-4xl text-primary font-bold">{price.toFixed(2)}</h3>
+            </div>
           </div>
+          <p className="text-primary/70 font-normal text-sm sm:text-base mt-2">
+            {shortDescription}
+          </p>
+        </div>
+
+        <div className="flex justify-between items-end mt-4 flex-wrap gap-y-3">
+          <div className="bg-secondary px-2 py-1 rounded-sm flex items-center justify-center">
+            <span className="text-white uppercase text-xs font-bold">{category}</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => openModal(product)}
+            className="bg-primary cursor-pointer hover:bg-primary/80 transition-all text-xs sm:text-sm text-white px-3 sm:px-4 text-center py-2 uppercase font-bold rounded-md"
+          >
+            Detalles
+          </button>
         </div>
       </div>
     </div>

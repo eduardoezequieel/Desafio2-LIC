@@ -27,7 +27,7 @@ export const Select = ({
   options = [{ value: '', label: 'Categoría' }, ...options];
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-fit">
       {icon && (
         <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">{icon}</div>
       )}

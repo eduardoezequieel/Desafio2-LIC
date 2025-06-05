@@ -1,10 +1,13 @@
-interface ProductCardProps {
-  openModal: () => void;
+import { Modal } from '../ui/Modal';
+
+interface DialogProps {
+  open: boolean;
+  close: () => void;
 }
 
-export const ProductCard = ({ openModal }: ProductCardProps) => {
-  return (
-    <div className="bg-secondary-background rounded">
+const ProductModal = ({ open, close }: DialogProps) => (
+  <Modal open={open} close={close}>
+    <div className="bg-primary-background">
       <div className="rounded-sm flex h-[200px] min-[1280px]:h-[350px] flex-col items-center justify-center pt-4 px-4 pb-1">
         <img className="w-full rounded-sm h-full object-cover" src="/shopping1.jpg" alt="" />
       </div>
@@ -20,20 +23,11 @@ export const ProductCard = ({ openModal }: ProductCardProps) => {
           <p className="text-primary/70 font-normal text-sm sm:text-base">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, quibusdam.
           </p>
-          <div className="flex justify-between items-end flex-wrap gap-y-3">
-            <div className="bg-secondary px-2 py-1 rounded-sm flex items-center justify-center">
-              <span className="text-white uppercase text-xs font-bold">tag name</span>
-            </div>
-            <button
-              type="button"
-              onClick={openModal}
-              className="bg-primary cursor-pointer hover:bg-primary/80 transition-all text-xs sm:text-sm text-white px-3 sm:px-4 text-center py-2 uppercase font-bold rounded-md"
-            >
-              Detalles
-            </button>
-          </div>
+          <div className="flex justify-between items-end flex-wrap gap-y-3"></div>
         </div>
       </div>
     </div>
-  );
-};
+  </Modal>
+);
+
+export default ProductModal;

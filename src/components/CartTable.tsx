@@ -1,26 +1,32 @@
-import { useState } from 'react';
-
-interface CartItem {
-  id: number;
-  product: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+import { toast } from 'sonner';
+import { useCart } from '../hooks/useCart';
+import { removeFromCart, updateCart } from '../services/actions';
 
 export const CartTable = () => {
-  // Example data - in a real app this would come from a context or props
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    { id: 1, product: 'Product 1', price: 29.99, quantity: 2, image: '/product1.jpg' },
-    { id: 2, product: 'Product 2', price: 19.99, quantity: 1, image: '/product2.jpg' },
-    { id: 3, product: 'Product 3', price: 49.99, quantity: 3, image: '/product3.jpg' },
-  ]);
+  const { cart, fetchCart } = useCart();
 
-  const updateQuantity = (id: number, newQuantity: number) => {
-    if (newQuantity < 1) return;
-    setCartItems((items) =>
-      items.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item))
-    );
+  const updateQuantity = async (id: string, newQuantity: number) => {
+    if (newQuantity < 1) {
+      removeFromCart(id);
+      await fetchCart();
+      return;
+    }
+
+    if (newQuantity > 99) {
+      toast.warning('La cantidad máxima permitida es 99.');
+      return;
+    }
+
+    const { product, ...updatedCartItem } = cart.find((item) => item.id === id)!;
+    if (updatedCartItem) {
+      const updatedItem = {
+        ...updatedCartItem,
+        quantity: newQuantity,
+      };
+
+      await updateCart(updatedItem);
+      await fetchCart();
+    }
   };
 
   return (
@@ -44,18 +50,22 @@ export const CartTable = () => {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((item) => (
+            {cart.map((item) => (
               <tr key={item.id} className="hover:bg-primary-background">
                 <td className="py-4 px-4 border-r-2 border-b-2 border-border">
                   <div className="flex items-center">
                     <div className="h-16 w-16 flex-shrink-0 rounded-md border border-[var(--color-border)] overflow-hidden">
                       <div className="h-full w-full bg-[var(--color-tertiary-background)] flex items-center justify-center text-sm text-[var(--color-secondary)]">
-                        Image
+                        <img
+                          src={item.product.image}
+                          alt={item.product.name}
+                          className="h-full w-full object-cover"
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
                       <div className="text-sm font-medium text-[var(--color-primary)]">
-                        {item.product}
+                        {item.product.name}
                       </div>
                     </div>
                   </div>
@@ -83,10 +93,21 @@ export const CartTable = () => {
                   </div>
                 </td>
                 <td className="py-4 px-4 text-center font-medium text-primary border-b-2 border-border w-28">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                  }).format(item.price * item.quantity)}
                 </td>
               </tr>
             ))}
+
+            {cart.length === 0 && (
+              <tr>
+                <td colSpan={4} className="py-4 px-4 text-center text-primary font-semibold">
+                  No hay productos en el carrito.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

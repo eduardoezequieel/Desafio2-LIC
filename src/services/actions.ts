@@ -1,9 +1,18 @@
-import type { Cart } from '../interfaces/Cart';
+import type { Cart, CartWithProduct } from '../interfaces/Cart';
 import { API_URL } from '../utils';
 
-export const getCart = async (): Promise<Cart[]> => {
+/**
+ * Obtiene todos los elementos del carrito con información completa de productos
+ * Utiliza el parámetro _expand de JSON Server para incluir los detalles del producto
+ * relacionado con cada elemento del carrito
+ *
+ * @returns {Promise<CartWithProduct[]>} Elementos del carrito con detalles completos de productos
+ */
+export const getCart = async (): Promise<CartWithProduct[]> => {
   try {
-    const response = await fetch(`${API_URL}/cart`);
+    // Usamos _expand=product para obtener los detalles completos del producto asociado
+    // JSON Server buscará en la colección "products" usando el productId como clave foránea
+    const response = await fetch(`${API_URL}/cart?_expand=product`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -28,7 +37,6 @@ export const addToCart = async (cart: Cart): Promise<void> => {
     }
 
     await response.json();
-    console.log('Cart updated successfully');
   } catch (error) {
     console.error('Failed to update cart:', error);
   }
@@ -48,8 +56,58 @@ export const updateCart = async (cart: Cart): Promise<void> => {
     }
 
     await response.json();
-    console.log('Cart updated successfully');
   } catch (error) {
     console.error('Failed to update cart:', error);
+  }
+};
+
+export const clearCart = async (cart: CartWithProduct[]): Promise<boolean> => {
+  const cartIds = cart.map((item) => item.id);
+
+  return await Promise.all(
+    cartIds.map((id) =>
+      fetch(`${API_URL}/cart/${id}`, {
+        method: 'DELETE',
+      })
+    )
+  )
+    .then((responses) => {
+      // Verificamos si todas las respuestas fueron exitosas
+      const allSuccessful = responses.every((response) => response.ok);
+      if (!allSuccessful) {
+        throw new Error('Some items could not be removed from the cart');
+      }
+      return true;
+    })
+    .catch((error) => {
+      console.error('Failed to clear cart:', error);
+      return false;
+    });
+};
+
+/**
+ * Elimina un elemento del carrito de compras
+ * @param id El identificador del elemento a eliminar
+ * @returns {Promise<boolean>} Una promesa que resuelve a true si se eliminó correctamente
+ */
+export const removeFromCart = async (id: string): Promise<boolean> => {
+  try {
+    // Realizamos una petición DELETE para eliminar el producto del carrito
+    const response = await fetch(`${API_URL}/cart/${id}`, {
+      method: 'DELETE',
+    });
+
+    // Verificamos si la petición fue exitosa
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    // Devolvemos true para indicar que se eliminó correctamente
+    return true;
+  } catch (error) {
+    // Manejamos cualquier error que ocurra
+    console.error('Failed to remove from cart:', error);
+    // Devolvemos false para indicar que ocurrió un error
+    return false;
   }
 };

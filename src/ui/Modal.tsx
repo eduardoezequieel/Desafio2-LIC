@@ -1,35 +1,55 @@
-import { Dialog, VisuallyHidden } from 'radix-ui';
+import React from 'react';
 import '../css/dialog.css';
-import { X } from 'lucide-react';
 
-interface Props {
+interface ModalProps {
   open: boolean;
   close: () => void;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export const Modal = ({ open, close, children }: Props) => {
+export const Modal: React.FC<ModalProps> = ({ open, close, children }) => {
+  // Prevent clicks from bubbling to parent elements
+  const handleContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
+  // Prevent default on the overlay as well
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    close();
+  };
+
+  if (!open) return null;
+
   return (
-    <Dialog.Root open={open} onOpenChange={close}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="DialogOverlay" />
-        <Dialog.Content className="DialogContent">
-          <VisuallyHidden.Root asChild>
-            <Dialog.Title className="DialogTitle"></Dialog.Title>
-          </VisuallyHidden.Root>
-          <VisuallyHidden.Root asChild>
-            <Dialog.Description className="DialogDescription"></Dialog.Description>
-          </VisuallyHidden.Root>
-          {children}
-          <VisuallyHidden.Root>
-            <Dialog.Close asChild>
-              <button className="IconButton" aria-label="Close">
-                <X />
-              </button>
-            </Dialog.Close>
-          </VisuallyHidden.Root>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <div
+      className="DialogOverlay"
+      onClick={handleOverlayClick}
+      // Prevent default browser behavior
+      onSubmit={(e) => e.preventDefault()}
+    >
+      <div
+        className="DialogContent"
+        onClick={handleContentClick}
+        // Ensure the dialog content doesn't behave like a form
+        role="dialog"
+        aria-modal="true"
+      >
+        {children}
+        <button
+          className="IconButton"
+          aria-label="Close"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            close();
+          }}
+          type="button"
+        >
+          &times;
+        </button>
+      </div>
+    </div>
   );
 };

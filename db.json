@@ -1,18 +1,5 @@
 {
-  "cart": [
-    {
-      "id": "1749164366755",
-      "productId": 2,
-      "quantity": 2,
-      "price": 2798
-    },
-    {
-      "id": "1749164371996",
-      "productId": 3,
-      "quantity": 3,
-      "price": 5997
-    }
-  ],
+  "cart": [],
   "categories": [
     {
       "id": 1,

@@ -71,7 +71,7 @@
       "description": "El Samsung Galaxy S23 Ultra cuenta con un procesador Snapdragon 8 Gen 2, pantalla Dynamic AMOLED 2X de 6.8\", cámara principal de 200MP, batería de 5000mAh y resistencia al agua IP68.",
       "price": 1299.99,
       "category": "Smartphones",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/es/2302/gallery/es-galaxy-s23-s918-413799-sm-s918bzadeub-535927054?$650_519_PNG$",
+      "image": "/products/samsung-galaxy-s23-ultra.jpg",
       "stars": 5
     },
     {
@@ -81,7 +81,7 @@
       "description": "iPhone 15 Pro Max con pantalla Super Retina XDR de 6.7\", chip A17 Pro, cámara triple de 48MP+12MP+12MP, diseño de titanio y conectividad USB-C.",
       "price": 1399,
       "category": "Smartphones",
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009278906",
+      "image": "/products/iphone15promax.jpg",
       "stars": 5
     },
     {
@@ -91,7 +91,7 @@
       "description": "MacBook Pro de 14\" con chip M2 Pro, 16GB RAM, SSD 512GB, pantalla Liquid Retina XDR y hasta 18 horas de duración de batería.",
       "price": 1999,
       "category": "Laptops",
-      "image": "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+      "image": "/products/macbook-pro-with-m2-pro-chip.jpg",
       "stars": 5
     },
     {
@@ -101,7 +101,7 @@
       "description": "Dell XPS 15 con procesador Intel Core i9-13900H, 32GB RAM, RTX 4070, SSD 1TB y pantalla OLED 4K de 15.6\" táctil.",
       "price": 2499.99,
       "category": "Laptops",
-      "image": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9530/media-gallery/notebook-xps-9530-nt-blue-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&wid=4000&hei=3000&qlt=100,0&resMode=sharp2&size=4000,3000",
+      "image": "/products/dell-xps-15.jpg",
       "stars": 5
     },
     {
@@ -111,7 +111,7 @@
       "description": "Audífonos Sony WH-1000XM5 con cancelación de ruido de última generación, 30 horas de batería, sonido Hi-Res y asistente de voz integrado.",
       "price": 399.99,
       "category": "Audio",
-      "image": "https://www.sony.com/image/9c9c1e4a2c4d1e1e6e1e1e1e1e1e1e1?fmt=pjpeg&wid=1014&hei=1014",
+      "image": "/products/sonyheadphones-wh-1000xm5.jpg",
       "stars": 5
     },
     {
@@ -121,7 +121,7 @@
       "description": "AirPods Pro con cancelación de ruido mejorada, sonido adaptativo, control táctil, resistencia al agua IPX4 y hasta 6 horas de batería.",
       "price": 249,
       "category": "Audio",
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQD83?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1660803972361",
+      "image": "/products/airpods-pro-2ageneracion.jpeg",
       "stars": 5
     },
     {
@@ -131,7 +131,7 @@
       "description": "Televisor Samsung QN90B de 65\" con resolución 4K, panel Neo QLED, Quantum HDR 32x, procesador Neo Quantum 4K y sistema de sonido Object Tracking Sound+.",
       "price": 1799.99,
       "category": "Televisores",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/es/qn65qn90batxxc/gallery/es-qn90b-neo-qled-4k-tv-qn65qn90batxxc-532486465?$650_519_PNG$",
+      "image": "/products/tvsamsung-neo-4k65.jpg",
       "stars": 4
     },
     {
@@ -141,7 +141,7 @@
       "description": "LG C2 OLED de 55\" con resolución 4K, tecnología OLED evo, frecuencia de 120Hz nativa, compatibilidad con NVIDIA G-Sync y FreeSync Premium.",
       "price": 1499,
       "category": "Televisores",
-      "image": "https://www.lg.com/us/images/tvs/md07500323/gallery/medium01.jpg",
+      "image": "/products/lg-c2-series.png",
       "stars": 5
     },
     {
@@ -151,7 +151,7 @@
       "description": "PlayStation 5 con procesador AMD Zen 2, GPU RDNA 2, SSD 825GB, compatibilidad con 4K/120Hz y ray tracing. Incluye mando DualSense con retroalimentación háptica.",
       "price": 499.99,
       "category": "Gaming",
-      "image": "https://gmedia.playstation.com/is/image/SIEPDC/playstation-5-with-dualsense-front-product-shot-01-ps5-en-30jul20?$1600px--t$",
+      "image": "/products/play5.jpeg",
       "stars": 5
     },
     {
@@ -161,7 +161,7 @@
       "description": "Xbox Series X con procesador Zen 2, GPU RDNA 2, SSD 1TB, 4K a 120fps, ray tracing y compatibilidad con miles de juegos de generaciones anteriores.",
       "price": 499.99,
       "category": "Gaming",
-      "image": "https://compass-ssl.xbox.com/assets/b9/0a/b90ad58f-9950-44a7-87fa-1ee8f0b6a90e.jpg?n=XBX_A-BuyBoxBGImage01-D.png",
+      "image": "/products/xbox-series-x.jpg",
       "stars": 5
     },
     {
@@ -171,7 +171,7 @@
       "description": "Nintendo Switch con pantalla OLED de 7\", base ajustable, audio mejorado, almacenamiento de 64GB y modo tabletop mejorado.",
       "price": 349.99,
       "category": "Gaming",
-      "image": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_656/b_white/f_auto/q_auto/ncom/software/switch/70010000063709/32a5b9d4edf6f1b0cadc8d4978da9f5a736e2b8c3a506758028f3a5b7d2095d8",
+      "image": "/products/nintendo-switch-oled.jpg",
       "stars": 5
     },
     {
@@ -181,7 +181,7 @@
       "description": "Apple Watch Ultra con caja de titanio, GPS de precisión, resistencia a 100m, brújula, oxímetro de sangre y batería de hasta 36 horas.",
       "price": 799,
       "category": "Wearables",
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQDY3ref_VW_34FR+watch-49-titanium-ultra_VW_34FR_WF_CO+watch-face-49-alpine-ultra_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1,0&fmt=p-jpg&qlt=95&.v=1660779058801,1660931037834,1660931037834",
+      "image": "/products/applewatchultra.jpg",
       "stars": 5
     },
     {
@@ -191,7 +191,7 @@
       "description": "Galaxy Watch 5 Pro con Wear OS, GPS avanzado, monitorización de sueño, resistencia militar, batería de 590mAh y pantalla Sapphire Crystal.",
       "price": 449.99,
       "category": "Wearables",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/es/2208/gallery/es-galaxy-watch5-pro-r920-sm-r920nzkaeub-532840834?$650_519_PNG$",
+      "image": "/products/galaxywatch5pro.jpg",
       "stars": 4
     },
     {
@@ -201,7 +201,7 @@
       "description": "iPad Pro de 12.9\" con chip M2, pantalla Liquid Retina XDR, compatibilidad con Apple Pencil y Magic Keyboard, y hasta 10 horas de batería.",
       "price": 1099,
       "category": "Tablets",
-      "image": "https://www.apple.com/v/ipad-pro/aj/images/overview/hero/hero_combo__fcqcc3hbzjyy_large.jpg",
+      "image": "/products/ipadpro12.9m2.jpg",
       "stars": 5
     },
     {
@@ -211,7 +211,7 @@
       "description": "Galaxy Tab S8 Ultra con pantalla Super AMOLED de 14.6\", procesador Snapdragon 8 Gen 1, S Pen incluido y batería de 11200mAh.",
       "price": 999.99,
       "category": "Tablets",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/es/2202/gallery/es-galaxy-tab-s8-ultra-x900-sm-x906nzkeub-531764795?$650_519_PNG$",
+      "image": "/products/samsung-galaxy-tab-s8-ultra.jpg",
       "stars": 5
     },
     {
@@ -221,7 +221,7 @@
       "description": "DJI Mavic 3 Pro con cámara triple Hasselblad (4/3 CMOS), 5.1K video, 46 minutos de vuelo, omnidirectional obstacle sensing y transmisión O3+.",
       "price": 2199,
       "category": "Drones",
-      "image": "https://www.dji.com/media/product-redesign/mavic-3-pro/product-redesign-mavic-3-pro-1.png",
+      "image": "/products/dji-mavic-3-pro.png",
       "stars": 5
     },
     {
@@ -231,7 +231,7 @@
       "description": "GoPro Hero 11 Black con sensor 1/1.9\", video 5.3K60, HyperSmooth 5.0, resistencia al agua hasta 10m y modos Horizon Lock y TimeWarp 3.0.",
       "price": 499.99,
       "category": "Fotografía",
-      "image": "https://gopro.com/content/dam/gopro/product-plus/hero11-black/screenshots/HERO11Black_Front_Angle_Black_HERO11Black-1.png",
+      "image": "/products/gopro-hero-11.jpg",
       "stars": 5
     },
     {
@@ -241,7 +241,7 @@
       "description": "Sony A7 IV con sensor full-frame de 33MP, video 4K60, autofoco real-time tracking, estabilización 5.5 stops y doble ranura para tarjetas.",
       "price": 2499,
       "category": "Fotografía",
-      "image": "https://www.sony.com/image/9c9c1e4a2c4d1e1e6e1e1e1e1e1e1e1?fmt=pjpeg&wid=1014&hei=1014",
+      "image": "/products/sonya7.jpg",
       "stars": 5
     },
     {
@@ -251,7 +251,7 @@
       "description": "Echo Studio con audio 3D, Dolby Atmos, asistente Alexa, reconocimiento de voz a distancia y control de dispositivos inteligentes.",
       "price": 199.99,
       "category": "Smart Home",
-      "image": "https://m.media-amazon.com/images/I/61GmDZQyYmL._AC_SL1000_.jpg",
+      "image": "/products/echo-studio.jpg",
       "stars": 4
     },
     {
@@ -261,7 +261,7 @@
       "description": "Nest Hub de 7\" con pantalla táctil, asistente Google, control de dispositivos inteligentes, seguimiento del sueño sin cámara y sonido mejorado.",
       "price": 99.99,
       "category": "Smart Home",
-      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Nest_Hub_2nd_gen.jpg",
+      "image": "/products/google-nest-hub.jpg",
       "stars": 4
     },
     {
@@ -271,7 +271,7 @@
       "description": "MX Master 3S con sensor 8K DPI, scroll MagSpeed, conexión Bluetooth/Unifying, hasta 70 días de batería y compatibilidad multi-dispositivo.",
       "price": 99.99,
       "category": "Periféricos",
-      "image": "https://resource.logitech.com/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png",
+      "image": "/products/logitech-mx-master-3s.jpg",
       "stars": 5
     },
     {
@@ -281,7 +281,7 @@
       "description": "Keychron K8 Pro con switches Gateron (hot-swappable), retroiluminación RGB, estructura de aluminio, conexión Bluetooth/Type-C y diseño compacto tenkeyless.",
       "price": 119,
       "category": "Periféricos",
-      "image": "https://cdn.shopify.com/s/files/1/0059/0630/1017/products/K8-Pro-transparent-BT-wireless-mechanical-keyboard-for-Mac-Windows-iOS-Android_1800x1800.png?v=1663820893",
+      "image": "/products/keychron-k8-pro.jpg",
       "stars": 5
     },
     {
@@ -291,7 +291,7 @@
       "description": "SSD Samsung T7 Shield con USB 3.2 Gen 2, velocidades de hasta 1050MB/s, resistencia IP65, protección contra caídas y compacto diseño.",
       "price": 109.99,
       "category": "Almacenamiento",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/es/870qbo/images/gallery/es-portable-ssd-t7-shield-1tb-blue-532840864?$650_519_PNG$",
+      "image": "/products/samsung-t7-shield.jpg",
       "stars": 5
     }
   ]

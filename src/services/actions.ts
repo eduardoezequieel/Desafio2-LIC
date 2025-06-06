@@ -23,47 +23,79 @@ export const getCart = async (): Promise<CartWithProduct[]> => {
   }
 };
 
+/**
+ * Añade un nuevo elemento al carrito de compras
+ *
+ * @param {Cart} cart - Objeto con la información del producto a añadir al carrito
+ * @returns {Promise<void>} - Promesa que se resuelve cuando se completa la operación
+ */
 export const addToCart = async (cart: Cart): Promise<void> => {
   try {
+    // Realizamos una petición POST para añadir el producto al carrito
     const response = await fetch(`${API_URL}/cart`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Indicamos que enviamos JSON
       },
-      body: JSON.stringify(cart),
+      body: JSON.stringify(cart), // Convertimos el objeto a JSON
     });
+
+    // Verificamos si la petición fue exitosa
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
 
+    // Procesamos la respuesta
     await response.json();
   } catch (error) {
+    // Manejamos cualquier error que ocurra
     console.error('Failed to update cart:', error);
   }
 };
 
+/**
+ * Actualiza un elemento existente en el carrito de compras
+ *
+ * @param {Cart} cart - Objeto con la información actualizada del elemento del carrito
+ * @returns {Promise<void>} - Promesa que se resuelve cuando se completa la operación
+ */
 export const updateCart = async (cart: Cart): Promise<void> => {
   try {
+    // Realizamos una petición PUT para actualizar el producto en el carrito
+    // Se usa el ID del elemento para identificar qué producto actualizar
     const response = await fetch(`${API_URL}/cart/${cart.id}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Indicamos que enviamos JSON
       },
-      body: JSON.stringify(cart),
+      body: JSON.stringify(cart), // Convertimos el objeto actualizado a JSON
     });
+
+    // Verificamos si la petición fue exitosa
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
 
+    // Procesamos la respuesta
     await response.json();
   } catch (error) {
+    // Manejamos cualquier error que ocurra
     console.error('Failed to update cart:', error);
   }
 };
 
+/**
+ * Vacía completamente el carrito de compras eliminando todos los elementos
+ *
+ * @param {CartWithProduct[]} cart - Array de elementos del carrito a eliminar
+ * @returns {Promise<boolean>} - Promesa que se resuelve a true si todos los elementos
+ * fueron eliminados correctamente, false en caso contrario
+ */
 export const clearCart = async (cart: CartWithProduct[]): Promise<boolean> => {
+  // Extraemos solo los IDs de los productos en el carrito
   const cartIds = cart.map((item) => item.id);
 
+  // Realizamos peticiones DELETE en paralelo para todos los elementos
   return await Promise.all(
     cartIds.map((id) =>
       fetch(`${API_URL}/cart/${id}`, {
